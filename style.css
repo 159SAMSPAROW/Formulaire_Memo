@@ -43,12 +43,13 @@ form {
 }
 
 label {
-    font-size: 25px;
+    font-size: 1.5rem;
 }
 
 input {
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 5px;
+    font-size: 1.2rem;
 }
 
 input,
@@ -117,6 +118,6 @@ legend {
     color: blue;
 }
 
-.postTitle-validation-message {
+span[id$="-validation"] {
     display: block;
   }

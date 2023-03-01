@@ -10,23 +10,101 @@ qui ne satisfont pas les contraintes de validation.
 En bref, l'API Constraint Validation est une fonctionnalité native des navigateurs modernes et vous pouvez l'utiliser directement
 dans votre code HTML et JavaScript. */
 
-const emailInput = document.querySelector('#coEmail');
+/*const emailInput = document.querySelector('#coEmail');
 
 emailInput.addEventListener('invalid', () => {
   emailInput.setCustomValidity('Veuillez entrer une adresse e-mail valide.');
-});
+});*/
+
 
 
 const postTitleInput = document.getElementById('postTitle');
-const connectedValidation = document.getElementById('postTitle-validation');
+const postTitleValidation = document.getElementById('postTitle-validation');
 
 postTitleInput.addEventListener('blur', function (event) {
   const isValid = event.target.validity.valid;
   const message = event.target.validationMessage;
 
   if (message && !isValid) {
-    connectedValidation.innerText = message;
+    postTitleValidation.innerText = message;
   } else {
-    connectedValidation.innerText = '';
+    postTitleValidation.innerText = '';
+  }
+}, true);
+
+const nameInput = document.getElementById('name');
+const nameValidation = document.getElementById('name-validation');
+
+nameInput.addEventListener('blur', function (event) {
+  const isValid = event.target.validity.valid;
+  const message = event.target.validationMessage;
+
+  if (message && !isValid) {
+    nameValidation.innerText = message;
+  } else {
+    nameValidation.innerText = '';
+  }
+}, true);
+
+const emailInput = document.getElementById('email');
+const emailValidation = document.getElementById('email-validation');
+
+emailInput.addEventListener('blur', function (event) {
+  const isValid = event.target.validity.valid;
+  const message = event.target.validationMessage;
+
+  if (message && !isValid) {
+    emailValidation.innerText = message;
+  } else {
+    emailValidation.innerText = '';
+  }
+}, true);
+
+const sexeInput = document.getElementById('sexe');
+const sexeValidation = document.getElementById('sexe-validation');
+
+sexeInput.addEventListener('blur', function (event) {
+  const isValid = event.target.validity.valid;
+  const message = event.target.validationMessage;
+
+  if (message && !isValid) {
+    sexeValidation.innerText = message;
+  } else {
+    sexeValidation.innerText = '';
+  }
+}, true);
+
+
+const dateInput = document.getElementById('date');
+const dateValidation = document.getElementById('date-validation');
+
+function validateDate(event) {
+  const isValid = dateInput.validity.valid;
+  const message = dateInput.validationMessage;
+
+  if (!isValid) {
+    dateValidation.innerText = message;
+    event.preventDefault(); // Empêche l'envoi du formulaire si la date n'est pas valide
+  } else {
+    dateValidation.innerText = '';
+  }
+}
+
+// Appel de la fonction de validation lors de la soumission du formulaire
+const form = document.querySelector('form');
+form.addEventListener('submit', validateDate);
+
+
+const telephoneInput = document.getElementById('telephone');
+const telephoneValidation = document.getElementById('telephone-validation');
+
+telephoneInput.addEventListener('blur', function (event) {
+  const isValid = event.target.validity.valid;
+  const message = event.target.validationMessage;
+
+  if (message && !isValid) {
+    telephoneValidation.innerText = message;
+  } else {
+    telephoneValidation.innerText = '';
   }
 }, true);

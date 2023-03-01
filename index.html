@@ -17,6 +17,7 @@
       <!--L'attribut for sur l'élément label correspond à l'attribut id sur l'input.-->
       <label for="name">Nom:</label>
       <input type="text" id="name" name="name" required  autocomplete="name"/>
+      <span id="name-validation"></span>
       <!--Utilisez l'attribut name pour identifier les données saisies par l'utilisateur avec le contrôle.
        Si vous soumettez le formulaire, ce nom est inclus dans la demande. Supposons que vous ayez nommé
        un contrôle de formulaire mountain et que l'utilisateur ait entré Gutenberg, la demande inclut ces
@@ -34,6 +35,7 @@
        l'utilisateur doit entrer au moins deux caractères, et pas plus de vingt.--->
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" title="Veuillez entrer une adresse e-mail valide"/>
+      <span id="email-validation"></span>
       <br />
       <br/>
 
@@ -52,21 +54,24 @@
     <fieldset>
       <legend>Informations personnelles</legend>
       <label for="sexe">Sexe:</label>
-      <select id="sexe" name="sexe">
+      <select id="sexe" name="sexe" required>
         <option value="homme" selected>Homme</option><!--selected = valeur par défaut-->
         <option value="femme">Femme</option>
         <option value="autre" >Autre</option>
       </select>
+      <span id="sexe-validation"></span>
       <br />
       <br />
 
       <label for="date">Date de naissance:</label>
-      <input type="date" id="date" name="date" />
+      <input type="date" id="date" name="date" required/>
+      <span id="date-validation"></span>
       <br />
       <br />
 
       <label for="telephone">Téléphone:</label>
       <input type="tel" id="telephone" name="telephone" required pattern="[0-9]{10,}" title="Veuillez entrer un numéro de téléphone valide avec au moins 10 chiffres"/>
+      <span id="telephone-validation"></span>
       <br />
       <br />
     </fieldset>
@@ -216,7 +221,7 @@
         et valider l'entrée immédiatement lorsqu'un utilisateur quitte un champ de formulaire.-->
         <label for="postTitle">Titre :</label>
         <input type="text" id="postTitle" name="title" required minlength="10" aria-describedby="postTitle-validation"/>
-        <span id="postTitle-validation" aria-live="assertive" class="postTitle-validation-message"></span>
+        <span id="postTitle-validation"  class="postTitle-validation-message"></span>
         <br />
         <br />
 
