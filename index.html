@@ -11,7 +11,7 @@
   <body>
     <!-- l'attribut action définit où le <form>est traité.-->
     <!-- envoie une requête à https://example.com/animals sous forme de requête GET, avec les données soumises ajoutées à l'URL -->
-    <form action="https://example.com/animals">
+    <form action="">
     <fieldset>
       <legend>Identifiant de connexion</legend>
       <!--L'attribut for sur l'élément label correspond à l'attribut id sur l'input.-->
@@ -44,8 +44,11 @@
       Pour ce faire, ajoutez un aria-describedby attribut à l'élément avec le même id que la div qui affiche la règle.
       -->
       <label for="password">Mot de passe:</label>
-      <input type="password" id="password" name="password" required minlength="8" aria-describedby="password-minlength"/>
+      <input type="password" id="password" name="password" required minlength="8" aria-describedby="password-minlength" aria-live="assertive"/>
       <div id="password-minlength">Entrer 8 charactères Minimum</div>
+      <!--Une approche simple consiste à utiliser l' aria-describedbyattribut sur le contrôle de formulaire qui correspond
+      id à l'élément de message d'erreur. Ensuite, utilisez aria-live="assertive"pour le message d'erreur.
+      Les régions en direct ARIA annoncent une erreur aux utilisateurs de lecteurs d'écran au moment où l'erreur est affichée.-->
       <br />
       <br />
 
