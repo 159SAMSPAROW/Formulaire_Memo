@@ -90,6 +90,10 @@ function validateDate(event) {
   }
 }
 
+// méthode toISOString() pour convertir la date actuelle en format ISO (YYYY-MM-DD) et l'affecter à l'attribut max de l'input 
+const currentDate = new Date().toISOString().slice(0,10);
+document.getElementById("date").setAttribute("max", currentDate);
+
 // Appel de la fonction de validation lors de la soumission du formulaire
 const form = document.querySelector('form');
 form.addEventListener('submit', validateDate);

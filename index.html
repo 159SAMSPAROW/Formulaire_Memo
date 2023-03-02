@@ -11,98 +11,139 @@
   <body>
     <!-- l'attribut action définit où le <form>est traité.-->
     <!-- envoie une requête à https://example.com/animals sous forme de requête GET, avec les données soumises ajoutées à l'URL -->
-    <form action="">
-    <fieldset>
-      <legend>Identifiant de connexion</legend>
-      <!--L'attribut for sur l'élément label correspond à l'attribut id sur l'input.-->
-      <label for="name">Nom:</label>
-      <input type="text" id="name" name="name" required  autocomplete="name"/>
-      <span id="name-validation"></span>
-      <!--Utilisez l'attribut name pour identifier les données saisies par l'utilisateur avec le contrôle.
+    <form action=""class="form-left">
+      <fieldset>
+        <legend>Identifiant de connexion</legend>
+        <!--L'attribut for sur l'élément label correspond à l'attribut id sur l'input.-->
+        <label for="name">Nom:</label>
+        <br />
+        <input type="text" id="name" name="name" required autocomplete="name" />
+        <span id="name-validation"></span>
+        <!--Utilisez l'attribut name pour identifier les données saisies par l'utilisateur avec le contrôle.
        Si vous soumettez le formulaire, ce nom est inclus dans la demande. Supposons que vous ayez nommé
        un contrôle de formulaire mountain et que l'utilisateur ait entré Gutenberg, la demande inclut ces
        informations sous forme de fichiers mountain=Gutenberg.-->
 
-      <!-- L'attribut de saisie semi-automatique #
+        <!-- L'attribut de saisie semi-automatique #
       Il existe d'autres exemples où il peut encore être difficile pour les navigateurs d'identifier le type de données
-      uniquement à partir des attributs name, idet . typeVous pouvez aider ici en utilisant l' autocomplete attribut.
+      uniquement à partir des attributs name, id et . type Vous pouvez aider ici en utilisant l' autocomplete attribut.
       -->
-      <br />
-      <br />
+        <br />
+    
 
-      <!--pattern est utilisé pour définir une expression régulière comme valeur.
+        <!--pattern est utilisé pour définir une expression régulière comme valeur.
       Ici, seules les lettres minuscules sont autorisées ;
        l'utilisateur doit entrer au moins deux caractères, et pas plus de vingt.--->
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" title="Veuillez entrer une adresse e-mail valide"/>
-      <span id="email-validation"></span>
-      <br />
-      <br/>
+        <label for="email">Email:</label>
+        <br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$"
+          title="Veuillez entrer une adresse e-mail valide"
+          autocomplete="email"
+        />
+        <span id="email-validation"></span>
+        <br />
+       
 
-      <!-- Assurez-vous que tous les utilisateurs comprennent vos règles de validation.
+        <!-- Assurez-vous que tous les utilisateurs comprennent vos règles de validation.
       Pour cela, associez le champ de formulaire à un élément expliquant les règles. 
       Pour ce faire, ajoutez un aria-describedby attribut à l'élément avec le même id que la div qui affiche la règle.
       -->
-      <label for="password">Mot de passe:</label>
-      <input type="password" id="password" name="password" required minlength="8" aria-describedby="password-minlength" aria-live="assertive"/>
-      <div id="password-minlength">Entrer 8 charactères Minimum</div>
-      <!--Une approche simple consiste à utiliser l' aria-describedbyattribut sur le contrôle de formulaire qui correspond
+        <label for="password">Mot de passe:</label>
+        <br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          minlength="8"
+          aria-describedby="password-minlength"
+          aria-live="assertive"
+          autocomplete="password"
+        />
+        <div id="password-minlength">Entrer 8 charactères Minimum</div>
+        <!--Une approche simple consiste à utiliser l' aria-describedbyattribut sur le contrôle de formulaire qui correspond
       id à l'élément de message d'erreur. Ensuite, utilisez aria-live="assertive"pour le message d'erreur.
       Les régions en direct ARIA annoncent une erreur aux utilisateurs de lecteurs d'écran au moment où l'erreur est affichée.-->
-      <br />
-      <br />
+        <br />
+       
+      </fieldset>
+      <fieldset>
+        <legend>Informations personnelles</legend>
+        <label for="sexe">Sexe:</label>
+        <br />
+        <select id="sexe" name="sexe" required>
+          <option value="homme" selected>Homme</option>
+          <!--selected = valeur par défaut-->
+          <option value="femme">Femme</option>
+          <option value="autre">Autre</option>
+        </select>
+        <span id="sexe-validation"></span>
+     
+        <br />
 
+        <label for="date">Date de naissance:</label>
+        <br />
+        <input type="date" id="date" name="date" required min="1950-03-01" />
+        <span id="date-validation"></span>
+        
+        <br />
 
-    </fieldset>
-    <fieldset>
-      <legend>Informations personnelles</legend>
-      <label for="sexe">Sexe:</label>
-      <select id="sexe" name="sexe" required>
-        <option value="homme" selected>Homme</option><!--selected = valeur par défaut-->
-        <option value="femme">Femme</option>
-        <option value="autre" >Autre</option>
-      </select>
-      <span id="sexe-validation"></span>
-      <br />
-      <br />
-
-      <label for="date">Date de naissance:</label>
-      <input type="date" id="date" name="date" required/>
-      <span id="date-validation"></span>
-      <br />
-      <br />
-
-      <label for="telephone">Téléphone:</label>
-      <input type="tel" id="telephone" name="telephone" required pattern="[0-9]{10,}" title="Veuillez entrer un numéro de téléphone valide avec au moins 10 chiffres"/>
-      <span id="telephone-validation"></span>
-      <br />
-      <br />
-    </fieldset>
+        <label for="telephone">Téléphone:</label>
+        <br />
+        <input
+          type="tel"
+          id="telephone"
+          name="telephone"
+          required
+          pattern="[0-9]{10,}"
+          title="Veuillez entrer un numéro de téléphone valide avec au moins 10 chiffres"
+        />
+        <span id="telephone-validation"></span>
+        <br />
+       
+      </fieldset>
       <label for="checkbox">Checkbox:</label>
-      <input type="checkbox" id="checkbox" name="checkbox" value="checkbox" checked/>
       <br />
+      <input
+        type="checkbox"
+        id="checkbox"
+        name="checkbox"
+        value="checkbox"
+        checked
+      />
       <br />
+    
 
       <label for="radio1">Radio 1:</label>
+      <br />
       <input type="radio" id="radio1" name="radio" value="radio1" />
       <br />
-      <br />
+   
       <label for="radio2">Radio 2:</label>
+      <br />
       <input type="radio" id="radio2" name="radio" value="radio2" />
       <br />
-      <br />
+     
 
       <label for="time">Heure :</label>
+      <br />
       <input type="time" id="time" name="time" />
       <br />
-      <br />
+     
 
       <label for="url">URL :</label>
+      <br />
       <input type="url" id="url" name="url" />
       <br />
-      <br />
+  
 
       <label for="ma-range">Sélectionnez une valeur :</label>
+      <br />
       <input
         type="range"
         id="ma-range"
@@ -114,22 +155,22 @@
       />
       <span id="valeur-selectionnee">50</span>
       <br />
-      <br />
 
       <!-- input type search : taper du texte dans le champ pour rechercher du contenu du site -->
       <label for="ma-recherche">Rechercher :</label>
-      <input type="search" id="ma-recherche" name="ma-recherche" />
       <br />
+      <input type="search" id="ma-recherche" name="ma-recherche" />
       <br />
 
       <!-- input type "file" pour ajouter un fichier -->
       <label for="file">Fichier</label>
-      <input type="file" id="file" name="photo" />
       <br />
+      <input type="file" id="file" name="photo" />
       <br />
 
       <!-- input type "photo" pour télécharger une image -->
       <label for="mon-image">Télécharger une image :</label>
+      <br />
       <input
         type="image"
         id="mon-image"
@@ -137,17 +178,19 @@
         alt="Image de mon choix"
       />
       <br />
-      <br />
+    
 
       <!-- textarea pour un champ de texte multiligne -->
       <label for="textarea">Textarea:</label>
+      <br />
       <textarea id="textarea" name="textarea"></textarea>
       <br />
-      <br />
+   
 
       <!-- input type "button"  crée un bouton interactif qui peut être utilisé pour déclencher une action en JavaScript,
       mais il ne soumet pas un formulaire lorsqu'il est cliqué-->
       <label for="mon-bouton">input type button</label>
+      <br />
       <input
         type="button"
         id="mon-bouton"
@@ -168,42 +211,61 @@
       <form class="form-top">
         <h2>Se connecter</h2>
 
-        
         <label for="coEmail">Adresse e-mail :</label>
+        <br />
         <input type="email" id="coEmail" name="email" required />
         <br />
-        <br />
+        
 
         <label for="password-2">Mot de passe :</label>
-        <input type="password" id="password-2" name="password" required />
+        <br />
+        <input
+          type="password"
+          id="password-2"
+          name="password"
+          required
+          autocomplete="current-password"
+        />
         <br />
         <br />
 
         <button type="submit">Se connecter</button>
         <br />
-        <br />
+        
+        <!-- Ne serait-il pas formidable que le code que vous avez reçu dans le message SMS soit suggéré par le clavier à l'écran et
+        que vous puissiez le sélectionner directement pour remplir la valeur ? Sur Safari 14 ou version ultérieure, vous pouvez utiliser
+        autocomplete="one-time-code"pour y parvenir. Sur Chrome sur Android, vous pouvez utiliser l' API WebOTP pour y parvenir avec JavaScript.
+      -->
 
-      <!-- Vous pouvez également utiliser un <input>élément avec type="submit"au lieu d'un <button>élément.
+        <!-- Vous pouvez également utiliser un <input>élément avec type="submit"au lieu d'un <button>élément.
         L'entrée ressemble et se comporte comme un fichier <button>. Au lieu d'utiliser un <label>élément pour décrire le <input>,
         utilisez l' valueattribut à la place.
 
-        <input type="submit" value="Submit">-->
-
-      </form>
+        <input type="submit" value="Submit"
+      --></form>
 
       <form class="form-bottom">
         <h2>S'inscrire</h2>
         <label for="newEmail">Adresse e-mail :</label>
+        <br />
         <input type="email" id="newEmail" name="newEmail" required />
         <br />
-        <br />
+        
 
         <label for="newPassword">Mot de passe :</label>
-        <input type="password" id="newPassword" name="newPassword" required />
         <br />
+        <input
+          type="password"
+          id="newPassword"
+          name="newPassword"
+          required
+          autocomplete="new-password"
+        />
         <br />
+      
 
         <label for="confirmPassword">Confirmer le mot de passe :</label>
+        <br />
         <input
           type="password"
           id="confirmPassword"
@@ -215,7 +277,7 @@
 
         <button type="submit">S'inscrire</button>
         <br />
-        <br />
+       
       </form>
 
       <form class="form-top" action="/post/create" method="POST">
@@ -223,12 +285,24 @@
         <!-- validation en temps réel dans JavaScript en écoutant l' onblur événement d'un contrôle de formulaire
         et valider l'entrée immédiatement lorsqu'un utilisateur quitte un champ de formulaire.-->
         <label for="postTitle">Titre :</label>
-        <input type="text" id="postTitle" name="title" required minlength="10" aria-describedby="postTitle-validation"/>
-        <span id="postTitle-validation"  class="postTitle-validation-message"></span>
         <br />
+        <input
+          type="text"
+          id="postTitle"
+          name="title"
+          required
+          minlength="10"
+          aria-describedby="postTitle-validation"
+        />
+        <span
+          id="postTitle-validation"
+          class="postTitle-validation-message"
+        ></span>
         <br />
+      
 
         <label for="postContent">Contenu :</label>
+        <br />
         <textarea
           id="postContent"
           name="content"
@@ -237,9 +311,10 @@
           required
         ></textarea>
         <br />
-        <br />
+        
 
         <label for="postPhoto">Photo :</label>
+        <br />
         <input type="file" id="postPhoto" name="photo" />
         <br />
         <br />
@@ -250,21 +325,86 @@
       <form class="form-bottom" action="/post/{{post_id}}/edit" method="POST">
         <h2>Modifier le post</h2>
         <label for="title">Titre :</label>
-        <input type="text" id="title" name="title" value="{{post_title}}" required />
         <br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{post_title}}"
+          required
+        />
         <br />
-      
+        
+
         <label for="content">Contenu :</label>
-        <textarea id="content" name="content" rows="4" cols="40" required>{{post_content}}</textarea>
         <br />
+        <textarea id="content" name="content" rows="4" cols="40" required>
+{{post_content}}</textarea
+        >
         <br />
-      
+       
+
         <label for="photo">Photo :</label>
+        <br />
         <input type="file" id="photo" name="photo" />
         <br />
-        <br />
-      
+        <br />  
+
         <button type="submit">Modifier</button>
+      </form>
+
+      <form class="form-top">
+        <h2>Paiment CB</h2>
+        <!-- Autocomplete="cc-number" pour le champ du numéro de carte, afin de suggérer les numéros de carte précédemment enregistrés -->
+        <label for="card-number">Numéro de carte :</label>
+        <br />
+        
+        <input
+          type="text"
+          id="card-number"
+          name="cardNumber"
+          autocomplete="cc-number"
+          required
+        />
+        <br />
+        <!-- Autocomplete="cc-name" pour le champ du nom sur la carte, afin de suggérer les noms précédemment enregistrés -->
+        <label for="card-name">Nom sur la carte :</label>
+        <br />
+        
+        <input
+          type="text"
+          id="card-name"
+          name="cardName"
+          autocomplete="cc-name"
+          required
+        />
+        <br />
+        <!-- autocomplete="cc-exp" pour le champ de la date d'expiration, afin de suggérer les dates d'expiration précédemment enregistrés-->
+        <label for="card-expiry">Date d'expiration :</label>
+        <br />
+        
+        <input
+          type="text"
+          id="card-expiry"
+          name="cardExpiry"
+          autocomplete="cc-exp"
+          required
+        />
+        <br />
+        <!-- On peut utiliser autocomplete="off"ces champs pour empêcher le remplissage automatique.-->
+        <label for="card-cvc">Code de sécurité :</label>
+        <br />
+        
+        <input
+          type="text"
+          id="card-cvc"
+          name="cardCvc"
+          autocomplete="cc-csc"
+          required
+        />
+        <br />
+        <br />
+        <button type="submit">Soumettre</button>
       </form>
     </aside>
 
